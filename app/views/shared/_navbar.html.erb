@@ -10,9 +10,15 @@
 
   <div>
     <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item-log-in-out">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-gradient" %>
+      </li>
+      <% else %>
       <li class="nav-item active">
         <%= link_to "Login", new_user_session_path, class: "btn btn-gradient" %>
       </li>
+      <% end %>
     </ul>
   </div>
 </div>
